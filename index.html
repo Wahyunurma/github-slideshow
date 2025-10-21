@@ -1,13 +1,244 @@
----
-layout: presentation
----
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Template website responsif dengan warna biru dongker dan kuning, fokus pada UI/UX yang intuitif dan nyaman dibaca." />
+    <meta name="theme-color" content="#0c2340" />
 
-{% for post in site.posts reversed %}
-	{% include slide.html %}
-	<div class="page-break"></div>
-{% endfor %}
-{% unless site.simple-slideshow %}
-{% if site.overview %}
-<section id="overview" class="step" {% for attr in site.overview-data %} data-{{attr[0]}}="{{attr[1]}}"{% endfor %}></section>
-{% endif %}
-{% endunless %}
+    <title>Template Responsif - Biru Dongker & Kuning</title>
+
+    <!-- Font yang mudah dibaca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <!-- Link lewati ke konten utama (aksesibilitas) -->
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+    <!-- Header dengan logo dan navigasi -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a href="#" class="logo" aria-label="Beranda">
+          <!-- Logo sederhana menggunakan teks -->
+          <span class="logo-mark" aria-hidden="true">◆</span>
+          <span class="logo-text">Navy<span class="accent">Yellow</span></span>
+        </a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="sr-only">Buka tutup navigasi</span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Navigasi utama" role="navigation">
+          <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bagian Hero dengan slider gambar latar -->
+    <section id="hero" class="hero" aria-label="Sorotan">
+      <div class="hero-slider" data-animate>
+        <!-- Slide akan dirender oleh JavaScript -->
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+          <h1>Bangun Pengalaman Web yang Nyaman</h1>
+          <p>Desain responsif dengan kontras baik, navigasi jelas, dan interaksi yang halus.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#produk">Lihat Produk</a>
+            <a class="btn btn-outline" href="#artikel">Baca Artikel</a>
+          </div>
+
+          <div class="hero-controls" role="group" aria-label="Kontrol slider">
+            <button class="hero-prev" aria-label="Slide sebelumnya">‹</button>
+            <button class="hero-next" aria-label="Slide berikutnya">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout dua kolom: konten utama + sidebar -->
+    <div class="container layout" id="main">
+      <main class="main-content" role="main">
+        <!-- Konten kartu produk/artikel -->
+        <section id="produk" class="cards-section" aria-labelledby="produk-title" data-animate>
+          <h2 id="produk-title">Produk Unggulan</h2>
+          <div class="cards-grid">
+            <!-- Kartu contoh -->
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Produk 1">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop" alt="Produk 1" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Produk 1</h3>
+                <p class="card-text">Desain fungsional dan nyaman digunakan di berbagai perangkat.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary" href="#">Beli</a>
+                  <a class="btn btn-ghost" href="#">Detail</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Produk 2">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Produk 2" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Produk 2</h3>
+                <p class="card-text">Warna biru dongker dan kuning memberikan identitas yang kuat.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary" href="#">Beli</a>
+                  <a class="btn btn-ghost" href="#">Detail</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Produk 3">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Produk 3" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Produk 3</h3>
+                <p class="card-text">Interaksi halus dengan efek hover dan animasi transisi.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary" href="#">Beli</a>
+                  <a class="btn btn-ghost" href="#">Detail</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Produk 4">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Produk 4" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Produk 4</h3>
+                <p class="card-text">Keterbacaan optimal dengan pilihan font dan kontras yang baik.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary" href="#">Beli</a>
+                  <a class="btn btn-ghost" href="#">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Artikel -->
+        <section id="artikel" class="cards-section" aria-labelledby="artikel-title" data-animate>
+          <h2 id="artikel-title">Artikel Terbaru</h2>
+          <div class="cards-grid">
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Artikel 1">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Artikel 1" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Prinsip UI/UX Dasar</h3>
+                <p class="card-text">Bagaimana menyusun hierarki visual dan alur navigasi yang jelas.</p>
+                <div class="card-actions">
+                  <a class="btn btn-ghost" href="#">Baca</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" tabindex="0">
+              <a href="#" class="card-media" aria-label="Artikel 2">
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Artikel 2" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <h3 class="card-title">Aksesibilitas Web Modern</h3>
+                <p class="card-text">Teknik sederhana untuk meningkatkan aksesibilitas tanpa ribet.</p>
+                <div class="card-actions">
+                  <a class="btn btn-ghost" href="#">Baca</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sidebar untuk info tambahan / tautan penting -->
+      <aside class="sidebar" aria-label="Sidebar informasi" data-animate>
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Cari</h2>
+          <form role="search" class="search-form" aria-label="Form pencarian">
+            <label class="sr-only" for="q">Kata kunci</label>
+            <input id="q" name="q" type="search" placeholder="Cari produk atau artikel..." autocomplete="off" />
+            <button type="submit" class="btn btn-primary">Cari</button>
+          </form>
+        </section>
+
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Tautan Penting</h2>
+          <nav aria-label="Tautan penting">
+            <ul class="link-list">
+              <li><a href="#hero">Tentang Kami</a></li>
+              <li><a href="#produk">Katalog</a></li>
+              <li><a href="#artikel">Blog</a></li>
+              <li><a href="#kontak">Hubungi Kami</a></li>
+            </ul>
+          </nav>
+        </section>
+
+        <section class="sidebar-section highlight">
+          <h2 class="sidebar-title">Promo</h2>
+          <p>Dapatkan diskon spesial untuk pelanggan baru minggu ini.</p>
+          <a class="btn btn-outline" href="#">Lihat Promo</a>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Footer dengan kontak dan media sosial -->
+    <footer id="kontak" class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <div class="footer-col">
+          <h3 class="footer-title">Kontak</h3>
+          <ul class="contact-list">
+            <li>Email: <a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li>Telepon: <a href="tel:+62123456789">+62 123-456-789</a></li>
+            <li>Alamat: Jl. Mawar No. 1, Jakarta</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-title">Ikuti Kami</h3>
+          <div class="socials" aria-label="Media sosial">
+            <a aria-label="Instagram" href="#" class="social-link" title="Instagram" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.4.4.6.2 1 .4 1.5.9.4.4.7.9.9 1.5.2.5.3 1.2.4 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.4-.2.6-.4 1-.9 1.5-.4.4-.9.7-1.5.9-.5.2-1.2.3-2.4.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.4-.4-.6-.2-1-.4-1.5-.9-.4-.4-.7-.9-.9-1.5-.2-.5-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.4.2-.6.4-1 .9-1.5.4-.4.9-.7 1.5-.9.5-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.6.7-.7 1.1-.1.3-.3.9-.3 1.8-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.7.6 1.1.7.3.1.9.3 1.8.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.6-.7.7-1.1.1-.3.3-.9.3-1.8.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.7-.6-1.1-.7-.3-.1-.9-.3-1.8-.3-1.2-.1-1.6-.1-4.7-.1m0 3.1a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6m0 1.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10m6.9-2a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Z"/></svg>
+            </a>
+            <a aria-label="Twitter" href="#" class="social-link" title="Twitter" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 5.8c-.7.3-1.4.6-2.2.7.8-.5 1.4-1.2 1.7-2.1-.7.4-1.6.8-2.4.9a3.5 3.5 0 0 0-6 3.2A9.9 9.9 0 0 1 3.1 4.9a3.5 3.5 0 0 0 1.1 4.7c-.6 0-1.2-.2-1.7-.5 0 1.7 1.2 3.3 3 3.7-.5.2-1 .2-1.6.1.5 1.5 1.9 2.6 3.6 2.6A7 7 0 0 1 2 18.5 9.9 9.9 0 0 0 7.3 20c6 0 9.4-5 9.4-9.4v-.4c.7-.4 1.3-1.1 1.7-1.8Z"/></svg>
+            </a>
+            <a aria-label="LinkedIn" href="#" class="social-link" title="LinkedIn" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 8.98h4v12H3v-12Zm7.5 0h3.8v1.64h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.11v6.31h-4v-5.6c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.69h-4v-12Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-title">Newsletter</h3>
+          <form class="newsletter-form" aria-label="Form newsletter">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" placeholder="Alamat email" autocomplete="email" />
+            <button type="submit" class="btn btn-outline">Langganan</button>
+          </form>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <small>© <span id="year"></span> NavyYellow. Semua hak dilindungi.</small>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="noscript">Javascript dinonaktifkan. Beberapa fitur dinamis seperti slider tidak akan berfungsi.</div>
+    </noscript>
+  </body>
+</html>
